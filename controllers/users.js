@@ -16,9 +16,9 @@ module.exports = {
     singUp: async (req, res, next) => {
         console.log('UsersController.signUp() called!');
 
-        // const { email, password} = req.value.body; - эквивалент
-        const email = req.value.body.email;
-        const password = req.value.body.password;
+        const { email, password} = req.value.body; // эквивалент
+        // const email = req.value.body.email;
+        // const password = req.value.body.password;
 
         // Check if there is a user with the same email
         const foundUser = await User.findOne({ email });
@@ -43,6 +43,7 @@ module.exports = {
     },
 
     secret: async (req, res, next) => {
-        
+        console.log('I\'m here');
+        res.json({ secret: "resource" });
     },
 }
