@@ -1,6 +1,9 @@
-const express = require('express')
+const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/Auth', { useNewUrlParser: true,  useUnifiedTopology: true });
 
 const app = express();
 
