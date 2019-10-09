@@ -10,7 +10,7 @@ router.route('/singup')
     .post(validateBody(schemas.authSchema), UsersController.singUp); //при переходе на роут вызываем validateBody, if все ок вызываем singUp
 
 router.route('/singin')
-    .post(UsersController.singIn);
+    .post(validateBody(schemas.authSchema), passport.authenticate('local', { session: false }), UsersController.singIn);
 
 router.route('/secret')
     .get(passport.authenticate('jwt', { session: false }), UsersController.secret);
